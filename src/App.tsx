@@ -6,8 +6,9 @@ import {Rating} from "./Components/Rating/Rating";
 function App() {
     return (
         <div>
-            <PageTitle title={'This PageTitle'}/>
-            <Accordion title={'Accordion Title'}/>
+            <PageTitle title = {'This PageTitle'}/>
+            <Accordion title = {'Menu'}/>
+            <Accordion title = {'Users'}/>
             <Rating value = {0}/>
             <Rating value = {1}/>
             <Rating value = {2}/>
@@ -18,7 +19,11 @@ function App() {
     );
 }
 
-function PageTitle(props: {title: string}) {
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
     return (<h1>{props.title}</h1>)
 }
 
