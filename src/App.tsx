@@ -3,12 +3,12 @@ import './App.css';
 import {Accordion} from "./Components/Accordion/Accordion";
 import {Rating} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
-import {SelfControlledAccordion} from "./Components/SelfContolledAccordion/SelfControlledAccordion";
-import {SelfControlledRating} from "./Components/SelfControlledRating/SelfControlledRating";
+import {UncontrolledAccordion} from "./Components/UncontrolledAccordion/UncontrolledAccordion";
+import {UncontrolledRating} from "./Components/UncontrolledRating/UncontrolledRating";
 
 function App() {
     return (
-        <div>
+        <div className='App'>
             <PageTitle title = {'This PageTitle'}/>
             <Accordion title = {'Menu'} collapsed = {true}/>
             <Accordion title = {'Users'} collapsed = {false}/>
@@ -21,8 +21,8 @@ function App() {
 
             <OnOff/>
 
-            <SelfControlledAccordion title = {'self controlled accordion'}/>
-            <SelfControlledRating />
+            <UncontrolledAccordion title = {'self controlled accordion'}/>
+            <UncontrolledRating />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-export function SelfControlledAccordionBody() {
+export function UncontrolledAccordionBody() {
     return (
         <ul>
             <li>1</li>

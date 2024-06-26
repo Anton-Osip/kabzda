@@ -5,7 +5,7 @@ type AccordionTitlePropsType = {
     changeCollapsed: () => void
 }
 
-export function SelfControlledAccordionTitle({title, changeCollapsed}: AccordionTitlePropsType) {
+export function UncontrolledAccordionTitle({title, changeCollapsed}: AccordionTitlePropsType) {
     return (
         <h3 onClick = {changeCollapsed}>{title}</h3>
 
