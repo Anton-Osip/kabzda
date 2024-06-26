@@ -1,16 +1,53 @@
-type OnOffProps = {
-    value: boolean
-}
+import {useState} from "react";
 
-export const OnOff = ({value}: OnOffProps) => {
+export const OnOff = () => {
+
+    const [on,setOn]=useState(false)
+
+    const onStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid #000',
+        display: 'inline-block',
+        padding: '2px',
+        backgroundColor: on ? 'green' : 'white',
+        cursor: 'pointer',
+    }
+    const offStyle = {
+        width: '30px',
+        height: '20px',
+        border: '1px solid #000',
+        display: 'inline-block',
+        padding: '2px',
+        marginLeft: '2px',
+        backgroundColor: !on ? 'red' : 'white',
+        cursor: 'pointer',
+    }
+    const IndicatorStyle = {
+        width: '10px',
+        height: '10px',
+        borderRadius: '50%',
+        border: '1px solid #000',
+        display: 'inline-block',
+        marginLeft: '5px',
+        backgroundColor: on ? 'green' : 'red',
+    }
+
     return (
-        <div style = {{display: 'flex', gap: '25px', marginBottom: '25px'}}>
-            {value && <button style = {{background: 'green'}}>On</button>}
-            {!value && <button >On</button>}
-            {!value && <button style = {{background: 'red'}}>Off</button>}
-            {value && <button >Off</button>}
-            {value && <div style = {{width: '20px', height: '20px', borderRadius: '50%',background: 'green'}}></div>}
-            {!value && <div style = {{width: '20px', height: '20px', borderRadius: '50%',background: 'red'}}></div>}
+        <div>
+            <div
+                style = {onStyle}
+                onClick = {() => {
+                    setOn(true)
+                }}>On
+            </div>
+            <div
+                style = {offStyle}
+                onClick = {() => {
+                    setOn(false)
+                }}>Off
+            </div>
+            <div style = {IndicatorStyle}></div>
         </div>
     )
 }
