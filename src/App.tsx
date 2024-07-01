@@ -7,6 +7,7 @@ import {UncontrolledAccordion} from "./Components/UncontrolledAccordion/Uncontro
 import {UncontrolledRating} from "./Components/UncontrolledRating/UncontrolledRating";
 import {ControlledRating} from "./Components/ControlledRating/ControlledRating";
 import {ControlledAccordion} from "./Components/ControlledAccordion/ControlledAccordion";
+import {ControlledOnOff} from "./Components/ControlledOnOff/ControlledOnOff";
 
 export type RatingValue = 0 | 1 | 2 | 3 | 4 | 5;
 
@@ -15,6 +16,9 @@ function App() {
     const [ratingValue, setRatingValue] = useState<RatingValue>(0)
 
     const [collapsed, setCollapsed] = useState<boolean>(false);
+
+    const [onOff,setOn]=useState<boolean>(false)
+
     return (
         <div className = "App">
             <PageTitle title = {'This PageTitle'}/>
@@ -34,6 +38,7 @@ function App() {
 
             <ControlledRating value = {ratingValue} onClick={setRatingValue}/>
             <ControlledAccordion title={'sdfghfds'} collapsed={collapsed} setCollapsed={setCollapsed}/>
+            <ControlledOnOff onOff={onOff} setOnOff={setOn}/>
         </div>
     );
 }
