@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./Components/Accordion/Accordion";
 import {Rating} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./Components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./Components/UncontrolledRating/UncontrolledRating";
+import {ControlledRating} from "./Components/ControlledRating/ControlledRating";
+import {ControlledAccordion} from "./Components/ControlledAccordion/ControlledAccordion";
+
+export type RatingValue = 0 | 1 | 2 | 3 | 4 | 5;
 
 function App() {
+
+    const [ratingValue, setRatingValue] = useState<RatingValue>(0)
+
+    const [collapsed, setCollapsed] = useState<boolean>(false);
     return (
-        <div className='App'>
+        <div className = "App">
             <PageTitle title = {'This PageTitle'}/>
             <Accordion title = {'Menu'} collapsed = {true}/>
             <Accordion title = {'Users'} collapsed = {false}/>
@@ -22,7 +30,10 @@ function App() {
             <OnOff/>
 
             <UncontrolledAccordion title = {'self controlled accordion'}/>
-            <UncontrolledRating />
+            <UncontrolledRating/>
+
+            <ControlledRating value = {ratingValue} onClick={setRatingValue}/>
+            <ControlledAccordion title={'sdfghfds'} collapsed={collapsed} setCollapsed={setCollapsed}/>
         </div>
     );
 }
