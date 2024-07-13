@@ -4,13 +4,13 @@ import {AccordionBody} from "./AccordionBody/AccordionBody";
 
 type AccordionPropsType = {
     title: string
-    collapsed:boolean
+    collapsed: boolean
 }
 
-export function Accordion(props:AccordionPropsType) {
+export function Accordion(props: AccordionPropsType) {
     return (<>
-           <AccordionTitle title={props.title}/>
-            {!props.collapsed && <AccordionBody />}
+            <AccordionTitle title = {props.title}/>
+            {!props.collapsed && <AccordionBody/>}
         </>
     )
 }
