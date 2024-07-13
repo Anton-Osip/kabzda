@@ -1,8 +1,8 @@
 import {useState} from "react";
 
-export const OnOff = () => {
+export const OnOff = ({defaultsValue}: { defaultsValue?: boolean }) => {
 
-    const [on,setOn]=useState(false)
+    const [on, setOn] = useState(defaultsValue ? defaultsValue : false)
 
     const onStyle = {
         width: '30px',
