@@ -47,7 +47,7 @@ export const ControlledCheckbox = () => {
     }}/>--{value.toString()}</>
 }
 export const ControlledSelect = () => {
-    const [value, setValue] = useState<string>(2)
+    const [value, setValue] = useState<string | undefined>(undefined)
     return (
         <>
             <select value = {value} onChange = {(e) => {
@@ -58,6 +58,5 @@ export const ControlledSelect = () => {
                 <option value = {2}>Select3</option>
                 <option value = {3}>Select4</option>
             </select>
-            -- {value.toString()}
         </>)
 }
