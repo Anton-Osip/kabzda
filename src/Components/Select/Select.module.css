@@ -1,0 +1,27 @@
+.select {
+    position: relative;
+    max-width: 50%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.selectHeader {
+    text-align: center;
+    padding: 15px 35px;
+    background-color: #c1c1c1;
+    font-size: 24px;
+    color: #fff;
+}
+
+.selectBody {
+    position: absolute;
+    border: 1px solid #c1c1c1;
+    width: 100%;
+    text-align: center;
+}
+
+.options {
+    border-bottom: 1px solid #c1c1c1;
+    font-size: 24px;
+    cursor: pointer;
+}

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Accordion} from "./Components/Accordion/Accordion";
+import {Accordion, ItemType} from "./Components/Accordion/Accordion";
 import {Rating} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./Components/UncontrolledAccordion/UncontrolledAccordion";
@@ -10,6 +10,13 @@ import {ControlledAccordion} from "./Components/ControlledAccordion/ControlledAc
 import {ControlledOnOff} from "./Components/ControlledOnOff/ControlledOnOff";
 
 export type RatingValue = 0 | 1 | 2 | 3 | 4 | 5;
+export const itemInitial: ItemType[] = [
+    {title: 'Yana', value: 'Yana1'},
+    {title: 'Anton', value: 'Anton2'},
+    {title: 'Katya', value: 'Katya3'},
+    {title: 'Sasha', value: 'Sasha4'},
+    {title: 'Roma', value: 'Roma5'}
+]
 
 function App() {
 
@@ -17,13 +24,16 @@ function App() {
 
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
-    const [onOff,setOn]=useState<boolean>(false)
+    const [onOff, setOn] = useState<boolean>(false)
+    const onClickCallback = (value: any) => {
+        console.log(value)
 
+    }
     return (
         <div className = "App">
             <PageTitle title = {'This PageTitle'}/>
-            <Accordion title = {'Menu'} collapsed = {true}/>
-            <Accordion title = {'Users'} collapsed = {false}/>
+            <Accordion onClick = {onClickCallback} items = {itemInitial} title = {'Menu'} collapsed = {true}/>
+            <Accordion onClick = {onClickCallback} items = {itemInitial} title = {'Users'} collapsed = {false}/>
             <Rating value = {0}/>
             <Rating value = {1}/>
             <Rating value = {2}/>
@@ -36,9 +46,9 @@ function App() {
             <UncontrolledAccordion title = {'self controlled accordion'}/>
             <UncontrolledRating/>
 
-            <ControlledRating value = {ratingValue} onClick={setRatingValue}/>
-            <ControlledAccordion title={'sdfghfds'} collapsed={collapsed} setCollapsed={setCollapsed}/>
-            <ControlledOnOff onOff={onOff} setOnOff={setOn}/>
+            <ControlledRating value = {ratingValue} onClick = {setRatingValue}/>
+            <ControlledAccordion title = {'sdfghfds'} collapsed = {collapsed} setCollapsed = {setCollapsed}/>
+            <ControlledOnOff onOff = {onOff} setOnOff = {setOn}/>
         </div>
     );
 }
