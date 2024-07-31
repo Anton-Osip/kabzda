@@ -1,27 +1,29 @@
-.select {
+.select .main {
+    border: 1px solid #000;
     position: relative;
-    max-width: 50%;
-    width: 100%;
-    margin: 0 auto;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 40px;
 }
 
 .selectHeader {
-    text-align: center;
-    padding: 15px 35px;
-    background-color: #c1c1c1;
-    font-size: 24px;
-    color: #fff;
+
 }
 
-.selectBody {
+.items {
     position: absolute;
-    border: 1px solid #c1c1c1;
-    width: 100%;
-    text-align: center;
+    border: 1px solid #000;
+
 }
 
-.options {
-    border-bottom: 1px solid #c1c1c1;
-    font-size: 24px;
-    cursor: pointer;
+.item{
+    padding: 5px;
+}
+.item.selected{
+    color: #fff;
+    background-color: blue;
+}
+.item:hover{
+    color: #fff;
+    background-color: blue;
 }
