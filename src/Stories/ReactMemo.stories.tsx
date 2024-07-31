@@ -1,7 +1,7 @@
 import React, {memo, useState} from "react";
 
 export default {
-    title: 'React.memo demo'
+    title: 'React memo demo'
 }
 
 const CounterSecrets = (props: { count: number }) => {
