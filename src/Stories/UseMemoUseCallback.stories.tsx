@@ -1,4 +1,4 @@
-import React, {memo, useMemo, useState} from "react";
+import React, {memo, useCallback, useMemo, useState} from "react";
 import {number} from "prop-types";
 
 export default {
@@ -100,8 +100,48 @@ export const helpsToReactMemo = () => {
         }}>+1
         </button>
         <button onClick = {() => {
-            setUsers([...users,'Yana'])
-        }}>addUser</button>
+            setUsers([...users, 'Yana'])
+        }}>addUser
+        </button>
         <Table users = {newArray}/>
+    </>
+}
+
+const BooksSecrets = (props: { books: string[], addBook: () => void }) => {
+    console.log('Books')
+    return (<>
+        <button onClick = {() => {
+            props.addBook()
+        }}>add Book
+        </button>
+        <div>{props.books.map((u, i) => <div key = {i}>{u}</div>)}</div>
+    </>)
+}
+
+const Books = memo(BooksSecrets)
+
+export const LikeACallback = () => {
+    const [counter, setCounter] = useState(1)
+    const [books, setBooks] = useState(['React', 'JS', 'REDUX', 'UX/UI'])
+
+
+    const memoAddBook = useMemo(() => {
+            return () => {
+                setBooks([...books, 'Angular'])
+            }
+        }, [books]
+    )
+    const memoAddBook2 = useCallback(() => {
+            setBooks([...books, 'Angular'])
+        }, [books]
+    )
+    return <>
+        <Counter count = {counter}/>
+        <button onClick = {() => {
+            setCounter(counter + 1)
+        }}>+1
+        </button>
+
+        <Books books = {books} addBook = {memoAddBook2}/>
     </>
 }
